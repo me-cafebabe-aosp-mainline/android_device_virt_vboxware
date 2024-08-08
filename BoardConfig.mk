@@ -39,7 +39,7 @@ TARGET_GRUB_ARCH := x86_64-efi
 # Kernel
 BOARD_KERNEL_CMDLINE += \
     8250.nr_uarts=1 \
-    console=ttyS0 \
+    androidboot.console=ttyS0 \
     androidboot.hardware=vboxware
 
 BOARD_KERNEL_IMAGE_NAME := bzImage
