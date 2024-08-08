@@ -25,7 +25,8 @@ TARGET_REFIND_BOOT_CONFIG := $(DEVICE_PATH)/rEFInd/refind-boot.conf
 TARGET_REFIND_INSTALL_CONFIG := $(DEVICE_PATH)/rEFInd/refind-install.conf
 
 # Graphics (Mesa)
-ifneq ($(wildcard external/mesa/android/Android.mk),)
+#ifneq ($(wildcard external/mesa/android/Android.mk),)
+ifeq (0,1)
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
 BOARD_MESA3D_BUILD_LIBGBM := true
 BOARD_MESA3D_USES_MESON_BUILD := true

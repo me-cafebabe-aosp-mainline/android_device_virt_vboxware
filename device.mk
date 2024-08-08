@@ -8,7 +8,8 @@
 $(call inherit-product, device/virt/virt-common/virt-common.mk)
 
 # Graphics (Mesa)
-ifneq ($(wildcard external/mesa/android/Android.mk),)
+#ifneq ($(wildcard external/mesa/android/Android.mk),)
+ifeq (0,1)
 PRODUCT_PACKAGES += \
     libEGL_mesa \
     libGLESv1_CM_mesa \
