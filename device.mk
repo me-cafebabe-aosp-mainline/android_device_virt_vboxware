@@ -16,9 +16,6 @@ PRODUCT_PACKAGES += \
     libgallium_dri \
     libglapi
 
-$(foreach vk_drv, virtio, \
-    $(eval PRODUCT_PACKAGES += vulkan.$(vk_drv)))
-
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.graphics.mesa.is_upstream=true
 else

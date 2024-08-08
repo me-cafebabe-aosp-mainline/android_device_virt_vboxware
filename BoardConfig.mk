@@ -28,10 +28,9 @@ TARGET_REFIND_INSTALL_CONFIG := $(DEVICE_PATH)/rEFInd/refind-install.conf
 ifneq ($(wildcard external/mesa/android/Android.mk),)
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
 BOARD_MESA3D_USES_MESON_BUILD := true
-BOARD_MESA3D_GALLIUM_DRIVERS := virgl
-BOARD_MESA3D_VULKAN_DRIVERS := virtio
+BOARD_MESA3D_GALLIUM_DRIVERS := svga
 else
-BOARD_GPU_DRIVERS := virgl
+BOARD_GPU_DRIVERS := vmwgfx
 endif
 
 # GRUB
