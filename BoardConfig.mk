@@ -47,7 +47,7 @@ ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
 BOARD_KERNEL_IMAGE_NAME := bzImage
 TARGET_KERNEL_ARCH := x86
 TARGET_KERNEL_CONFIG += \
-    lineageos/virtio.config
+    lineageos/vboxware.config
 else ifneq ($(wildcard $(TARGET_PREBUILT_KERNEL_DIR)/kernel),)
 BOARD_VENDOR_KERNEL_MODULES := \
     $(wildcard $(TARGET_PREBUILT_KERNEL_DIR)/*.ko)
