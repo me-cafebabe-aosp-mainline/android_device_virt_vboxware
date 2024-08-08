@@ -42,10 +42,10 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
-    gralloc.gbm
+    gralloc.drm
 
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.hardware.gralloc=gbm
+    ro.hardware.gralloc=drm
 
 # Init
 PRODUCT_COPY_FILES += \
