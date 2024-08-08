@@ -4,11 +4,19 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Boot manager
+TARGET_BOOT_MANAGER ?= grub
+
 # Inherit from common
 include device/virt/virt-common/BoardConfigVirtCommon.mk
 
 USES_DEVICE_VIRT_VBOXWARE := true
 DEVICE_PATH := device/virt/vboxware
+
+# Arch
+TARGET_CPU_ABI := x86_64
+TARGET_ARCH := x86_64
+TARGET_ARCH_VARIANT := x86_64
 
 # Boot manager
 TARGET_GRUB_BOOT_CONFIG := $(DEVICE_PATH)/grub/grub-boot.cfg
@@ -26,12 +34,19 @@ else
 BOARD_GPU_DRIVERS := virgl
 endif
 
+# GRUB
+TARGET_GRUB_ARCH := x86_64-efi
+
 # Kernel
 BOARD_KERNEL_CMDLINE += \
+    8250.nr_uarts=1 \
+    console=ttyS0 \
     androidboot.console=hvc0 \
     androidboot.hardware=vboxware
 
 ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
+BOARD_KERNEL_IMAGE_NAME := bzImage
+TARGET_KERNEL_ARCH := x86
 TARGET_KERNEL_CONFIG += \
     lineageos/virtio.config
 else ifneq ($(wildcard $(TARGET_PREBUILT_KERNEL_DIR)/kernel),)
