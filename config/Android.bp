@@ -4,33 +4,3 @@ prebuilt_etc {
     vendor: true,
     vendor_ramdisk_available: true,
 }
-
-genrule {
-    name: "gen_fstab_vboxware_gsi_sda",
-    srcs: ["fstab.vboxware"],
-    out: ["fstab.vboxware.gsi.sda"],
-    tool_files: [ "fstab.sed.gsi.sda" ],
-    cmd: "sed -f $(location fstab.sed.gsi.sda) $(in) > $(out)",
-}
-
-genrule {
-    name: "gen_fstab_vboxware_gsi_vdc",
-    srcs: ["fstab.vboxware"],
-    out: ["fstab.vboxware.gsi.vdc"],
-    tool_files: [ "fstab.sed.gsi.vdc" ],
-    cmd: "sed -f $(location fstab.sed.gsi.vdc) $(in) > $(out)",
-}
-
-prebuilt_etc {
-    name: "fstab.vboxware.gsi.sda",
-    src: ":gen_fstab_vboxware_gsi_sda",
-    vendor: true,
-    vendor_ramdisk_available: true,
-}
-
-prebuilt_etc {
-    name: "fstab.vboxware.gsi.vdc",
-    src: ":gen_fstab_vboxware_gsi_vdc",
-    vendor: true,
-    vendor_ramdisk_available: true,
-}

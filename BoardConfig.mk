@@ -41,7 +41,6 @@ TARGET_GRUB_ARCH := x86_64-efi
 BOARD_KERNEL_CMDLINE += \
     8250.nr_uarts=1 \
     console=ttyS0 \
-    androidboot.console=hvc0 \
     androidboot.hardware=vboxware
 
 ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
@@ -52,18 +51,6 @@ TARGET_KERNEL_CONFIG += \
 else ifneq ($(wildcard $(TARGET_PREBUILT_KERNEL_DIR)/kernel),)
 BOARD_VENDOR_KERNEL_MODULES := \
     $(wildcard $(TARGET_PREBUILT_KERNEL_DIR)/*.ko)
-else
-VIRTUAL_DEVICE_KERNEL_MODULES_PATH := \
-    kernel/prebuilts/common-modules/virtual-device/$(TARGET_PREBUILT_KERNEL_USE)/$(TARGET_PREBUILT_KERNEL_MODULES_ARCH)
-
-BOARD_RECOVERY_KERNEL_MODULES := \
-    $(wildcard $(VIRTUAL_DEVICE_KERNEL_MODULES_PATH)/*failover.ko) \
-    $(wildcard $(VIRTUAL_DEVICE_KERNEL_MODULES_PATH)/nd_virtio.ko) \
-    $(wildcard $(VIRTUAL_DEVICE_KERNEL_MODULES_PATH)/virtio*.ko)
-
-BOARD_GENERIC_RAMDISK_KERNEL_MODULES := \
-    $(wildcard $(KERNEL_ARTIFACTS_PATH)/*.ko) \
-    $(wildcard $(VIRTUAL_DEVICE_KERNEL_MODULES_PATH)/*.ko)
 endif
 
 # Recovery
@@ -73,6 +60,3 @@ TARGET_RECOVERY_PIXEL_FORMAT := ARGB_8888
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy/vendor
-
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public

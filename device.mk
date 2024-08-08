@@ -37,9 +37,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/init.vboxware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.vboxware.rc
 
 PRODUCT_PACKAGES += \
-    fstab.vboxware \
-    fstab.vboxware.gsi.sda \
-    fstab.vboxware.gsi.vdc
+    fstab.vboxware
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -55,11 +53,6 @@ ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
 else ifneq ($(wildcard $(TARGET_PREBUILT_KERNEL_DIR)/kernel),)
     PRODUCT_COPY_FILES += $(TARGET_PREBUILT_KERNEL_DIR)/kernel:kernel
     $(warning Using prebuilt kernel from $(TARGET_PREBUILT_KERNEL_DIR)/kernel)
-else
-    KERNEL_ARTIFACTS_PATH := kernel/prebuilts/$(TARGET_PREBUILT_EMULATOR_KERNEL_USE)/$(TARGET_PREBUILT_KERNEL_ARCH)
-    EMULATOR_KERNEL_FILE := $(KERNEL_ARTIFACTS_PATH)/kernel-$(TARGET_PREBUILT_EMULATOR_KERNEL_USE)
-    PRODUCT_COPY_FILES += $(EMULATOR_KERNEL_FILE):kernel
-    $(warning Using prebuilt kernel from $(EMULATOR_KERNEL_FILE))
 endif
 
 # Recovery
@@ -72,6 +65,4 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Vendor ramdisk
 PRODUCT_PACKAGES += \
-    fstab.vboxware.vendor_ramdisk \
-    fstab.vboxware.gsi.sda.vendor_ramdisk \
-    fstab.vboxware.gsi.vdc.vendor_ramdisk
+    fstab.vboxware.vendor_ramdisk
