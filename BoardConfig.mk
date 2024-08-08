@@ -24,17 +24,6 @@ TARGET_GRUB_INSTALL_CONFIG := $(DEVICE_PATH)/grub/grub-install.cfg
 TARGET_REFIND_BOOT_CONFIG := $(DEVICE_PATH)/rEFInd/refind-boot.conf
 TARGET_REFIND_INSTALL_CONFIG := $(DEVICE_PATH)/rEFInd/refind-install.conf
 
-# Graphics (Mesa)
-#ifneq ($(wildcard external/mesa/android/Android.mk),)
-ifeq (0,1)
-BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
-BOARD_MESA3D_BUILD_LIBGBM := true
-BOARD_MESA3D_USES_MESON_BUILD := true
-BOARD_MESA3D_GALLIUM_DRIVERS := svga
-else
-BOARD_GPU_DRIVERS := vmwgfx
-endif
-
 # GRUB
 TARGET_GRUB_ARCH := x86_64-efi
 
@@ -42,6 +31,7 @@ TARGET_GRUB_ARCH := x86_64-efi
 BOARD_KERNEL_CMDLINE += \
     8250.nr_uarts=1 \
     androidboot.console=ttyS0 \
+    androidboot.graphics=swiftshader \
     androidboot.hardware=vboxware
 
 BOARD_KERNEL_IMAGE_NAME := bzImage
