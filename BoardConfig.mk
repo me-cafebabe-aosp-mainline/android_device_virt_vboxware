@@ -42,8 +42,9 @@ BOARD_KERNEL_CMDLINE += \
     console=ttyS0 \
     androidboot.hardware=vboxware
 
-ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
 BOARD_KERNEL_IMAGE_NAME := bzImage
+
+ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
 TARGET_KERNEL_ARCH := x86
 TARGET_KERNEL_CONFIG += \
     lineageos/vboxware.config
