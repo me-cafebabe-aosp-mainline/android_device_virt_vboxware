@@ -27,6 +27,7 @@ TARGET_REFIND_INSTALL_CONFIG := $(DEVICE_PATH)/rEFInd/refind-install.conf
 # Graphics (Mesa)
 ifneq ($(wildcard external/mesa/android/Android.mk),)
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
+BOARD_MESA3D_BUILD_LIBGBM := true
 BOARD_MESA3D_USES_MESON_BUILD := true
 BOARD_MESA3D_GALLIUM_DRIVERS := svga
 else
@@ -60,3 +61,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := BGRX_8888
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy/vendor
+
+# VINTF
+DEVICE_MANIFEST_FILE += \
+    $(DEVICE_PATH)/config/manifest.xml

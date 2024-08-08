@@ -29,6 +29,16 @@ PRODUCT_SOONG_NAMESPACES += \
     external/mesa3d
 endif
 
+# Graphics (Gralloc)
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
+    gralloc.gbm
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.gralloc=gbm
+
 # Init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/init.vboxware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.vboxware.rc
