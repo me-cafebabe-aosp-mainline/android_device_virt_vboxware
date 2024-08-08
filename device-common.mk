@@ -34,12 +34,12 @@ endif
 
 # Init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/init.virtio.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.virtio.rc
+    $(LOCAL_PATH)/config/init.vboxware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.vboxware.rc
 
 PRODUCT_PACKAGES += \
-    fstab.virtio \
-    fstab.virtio.gsi.sda \
-    fstab.virtio.gsi.vdc
+    fstab.vboxware \
+    fstab.vboxware.gsi.sda \
+    fstab.vboxware.gsi.vdc
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -48,7 +48,7 @@ PRODUCT_COPY_FILES += \
 
 # Kernel
 TARGET_PREBUILT_KERNEL_USE ?= 6.1
-TARGET_PREBUILT_KERNEL_DIR := device/virt/kernel-virtio/$(TARGET_PREBUILT_KERNEL_USE)/$(TARGET_PREBUILT_KERNEL_ARCH)
+TARGET_PREBUILT_KERNEL_DIR := device/virt/kernel-vboxware/$(TARGET_PREBUILT_KERNEL_USE)/$(TARGET_PREBUILT_KERNEL_ARCH)
 TARGET_KERNEL_SOURCE := kernel/virt/virtio
 ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
     $(warning Using source built kernel)
@@ -64,7 +64,7 @@ endif
 
 # Recovery
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/init.recovery.virtio.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.virtio.rc
+    $(LOCAL_PATH)/config/init.recovery.vboxware.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.vboxware.rc
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -72,6 +72,6 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Vendor ramdisk
 PRODUCT_PACKAGES += \
-    fstab.virtio.vendor_ramdisk \
-    fstab.virtio.gsi.sda.vendor_ramdisk \
-    fstab.virtio.gsi.vdc.vendor_ramdisk
+    fstab.vboxware.vendor_ramdisk \
+    fstab.vboxware.gsi.sda.vendor_ramdisk \
+    fstab.vboxware.gsi.vdc.vendor_ramdisk

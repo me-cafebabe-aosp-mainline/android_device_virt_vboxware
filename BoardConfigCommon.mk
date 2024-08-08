@@ -7,14 +7,14 @@
 # Inherit from common
 include device/virt/virt-common/BoardConfigVirtCommon.mk
 
-USES_DEVICE_VIRT_VIRTIO_COMMON := true
-COMMON_PATH := device/virt/virtio-common
+USES_DEVICE_VIRT_VBOXWARE := true
+DEVICE_PATH := device/virt/vboxware
 
 # Boot manager
-TARGET_GRUB_BOOT_CONFIG := $(COMMON_PATH)/grub/grub-boot.cfg
-TARGET_GRUB_INSTALL_CONFIG := $(COMMON_PATH)/grub/grub-install.cfg
-TARGET_REFIND_BOOT_CONFIG := $(COMMON_PATH)/rEFInd/refind-boot.conf
-TARGET_REFIND_INSTALL_CONFIG := $(COMMON_PATH)/rEFInd/refind-install.conf
+TARGET_GRUB_BOOT_CONFIG := $(DEVICE_PATH)/grub/grub-boot.cfg
+TARGET_GRUB_INSTALL_CONFIG := $(DEVICE_PATH)/grub/grub-install.cfg
+TARGET_REFIND_BOOT_CONFIG := $(DEVICE_PATH)/rEFInd/refind-boot.conf
+TARGET_REFIND_INSTALL_CONFIG := $(DEVICE_PATH)/rEFInd/refind-install.conf
 
 # Graphics (Mesa)
 ifneq ($(wildcard external/mesa/android/Android.mk),)
@@ -29,7 +29,7 @@ endif
 # Kernel
 BOARD_KERNEL_CMDLINE += \
     androidboot.console=hvc0 \
-    androidboot.hardware=virtio
+    androidboot.hardware=vboxware
 
 ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
 TARGET_KERNEL_CONFIG += \
@@ -52,12 +52,12 @@ BOARD_GENERIC_RAMDISK_KERNEL_MODULES := \
 endif
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/config/fstab.virtio
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/config/fstab.vboxware
 TARGET_RECOVERY_PIXEL_FORMAT := ARGB_8888
 
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += \
-    $(COMMON_PATH)/sepolicy/vendor
+    $(DEVICE_PATH)/sepolicy/vendor
 
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public

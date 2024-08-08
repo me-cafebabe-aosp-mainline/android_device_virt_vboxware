@@ -1,4 +1,4 @@
-# Android common device tree for Virtual Machines with VirtIO hardware
+# Android common device tree for VirtualBox and VMware
 
 The device tree is currently WIP, Not suitable for normal use.
 
