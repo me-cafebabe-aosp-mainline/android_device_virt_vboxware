@@ -29,6 +29,14 @@ PRODUCT_SOONG_NAMESPACES += \
     external/mesa3d
 endif
 
+# Graphics (Composer)
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-service \
+    hwcomposer.drm
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.hwcomposer=drm
+
 # Graphics (Gralloc)
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
