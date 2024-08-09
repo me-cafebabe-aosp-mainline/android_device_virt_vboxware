@@ -5,7 +5,7 @@
 #
 
 # Boot manager
-TARGET_BOOT_MANAGER ?= grub
+TARGET_BOOT_MANAGER ?= linux_efi_stub
 
 # Inherit from common
 include device/virt/virt-common/BoardConfigVirtCommon.mk
@@ -19,6 +19,8 @@ TARGET_ARCH := x86_64
 TARGET_ARCH_VARIANT := x86_64
 
 # Boot manager
+TARGET_EFI_BOOT_SCRIPTS := $(wildcard $(DEVICE_PATH)/bootmgr/linux_efi_stub/boot/*.nsh)
+TARGET_EFI_INSTALL_SCRIPTS := $(wildcard $(DEVICE_PATH)/bootmgr/linux_efi_stub/install/*.nsh)
 TARGET_GRUB_BOOT_CONFIG := $(DEVICE_PATH)/bootmgr/grub/grub-boot.cfg
 TARGET_GRUB_INSTALL_CONFIG := $(DEVICE_PATH)/bootmgr/grub/grub-install.cfg
 TARGET_REFIND_BOOT_CONFIG := $(DEVICE_PATH)/bootmgr/rEFInd/refind-boot.conf
