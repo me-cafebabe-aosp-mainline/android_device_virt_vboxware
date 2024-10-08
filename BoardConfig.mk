@@ -16,7 +16,7 @@ DEVICE_PATH := device/virt/vboxware
 # Arch
 TARGET_CPU_ABI := x86_64
 TARGET_ARCH := x86_64
-TARGET_ARCH_VARIANT := x86_64
+TARGET_ARCH_VARIANT := sandybridge
 
 # Boot manager
 TARGET_EFI_BOOT_SCRIPTS := $(wildcard $(DEVICE_PATH)/bootmgr/linux_efi_stub/boot/*.nsh)
