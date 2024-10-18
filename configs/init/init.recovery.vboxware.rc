@@ -1,4 +1,11 @@
 import /init.recovery.virt.rc
 
+service create_partition_table /system/bin/sh -e /system/bin/create_partition_table.sh /system/bin/sgdisk /dev/block/sda sda ${ro.build.ab_update}
+    user root
+    group root
+    seclabel u:r:create_partition_table:s0
+    oneshot
+    disabled
+
 on property:ro.boot.install=1
-    exec u:r:create_partition_table:s0 -- /system/bin/sh -e /system/bin/create_partition_table.sh /system/bin/sgdisk /dev/block/sda sda ${ro.build.ab_update}
+    start create_partition_table
