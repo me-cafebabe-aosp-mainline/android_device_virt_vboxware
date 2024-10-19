@@ -42,7 +42,8 @@ BOARD_KERNEL_CMDLINE += \
     nomodeset \
     androidboot.console=ttyS0 \
     androidboot.graphics=swiftshader \
-    androidboot.hardware=vboxware
+    androidboot.hardware=vboxware \
+    androidboot.partition_map=sdb,userdata
 
 BOARD_KERNEL_IMAGE_NAME := bzImage
 
