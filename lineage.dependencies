@@ -2,5 +2,10 @@
   {
     "repository": "android_device_virt_virt-common",
     "target_path": "device/virt/virt-common"
+  },
+  {
+    "repository": "android_external_mesa",
+    "target_path": "external/mesa",
+    "branch": "lineage-22.0"
   }
 ]
