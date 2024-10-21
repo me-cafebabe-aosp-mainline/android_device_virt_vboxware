@@ -43,6 +43,9 @@ BOARD_KERNEL_CMDLINE += \
     androidboot.hardware=vboxware \
     androidboot.partition_map=sdb,userdata
 
+BOARD_KERNEL_CMDLINE_BOOT := \
+    nomodeset
+
 BOARD_KERNEL_IMAGE_NAME := bzImage
 
 ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
