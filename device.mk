@@ -4,13 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# A/B
-ifeq ($(AB_OTA_UPDATER),true)
-AB_OTA_UPDATER := true
-else
-AB_OTA_UPDATER := false
-endif
-
 # Inherit from common
 $(call inherit-product, device/virt/virt-common/virt-common.mk)
 

@@ -5,11 +5,7 @@
 #
 
 # Boot manager
-ifeq ($(AB_OTA_UPDATER),true)
 TARGET_BOOT_MANAGER := grub
-else
-TARGET_BOOT_MANAGER ?= linux_efi_stub
-endif
 
 # Inherit from common
 include device/virt/virt-common/BoardConfigVirtCommon.mk
