@@ -9,8 +9,7 @@ $(call inherit-product, device/virt/virt-common/virt-common.mk)
 
 # Graphics (Composer)
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-service \
-    hwcomposer.drm
+    android.hardware.graphics.composer@2.1-service.drmfb
 
 # Graphics (Gralloc)
 PRODUCT_PACKAGES += \

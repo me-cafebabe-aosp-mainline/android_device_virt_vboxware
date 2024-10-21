@@ -66,7 +66,8 @@ TARGET_RECOVERY_PIXEL_FORMAT := BGRX_8888
 
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += \
-    $(DEVICE_PATH)/sepolicy/vendor
+    $(DEVICE_PATH)/sepolicy/vendor \
+    external/drmfb-composer/sepolicy
 
 ifeq ($(AB_OTA_UPDATER),true)
 BOARD_VENDOR_SEPOLICY_DIRS += \
