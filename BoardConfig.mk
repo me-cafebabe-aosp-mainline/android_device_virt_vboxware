@@ -46,6 +46,9 @@ BOARD_KERNEL_CMDLINE += \
 BOARD_KERNEL_CMDLINE_BOOT := \
     nomodeset
 
+BOARD_KERNEL_CMDLINE_RECOVERY := \
+    console=tty0
+
 BOARD_KERNEL_IMAGE_NAME := bzImage
 
 ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
