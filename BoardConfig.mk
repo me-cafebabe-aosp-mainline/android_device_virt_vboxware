@@ -38,7 +38,6 @@ TARGET_GRUB_ARCH := x86_64-efi
 # Kernel
 BOARD_KERNEL_CMDLINE += \
     8250.nr_uarts=1 \
-    nomodeset \
     androidboot.console=ttyS0 \
     androidboot.graphics=swiftshader \
     androidboot.hardware=vboxware \
@@ -57,6 +56,7 @@ endif
 
 # Recovery
 TARGET_RECOVERY_FSTAB_GENRULE := gen_fstab_vboxware
+TARGET_RECOVERY_PIXEL_FORMAT := BGRX_8888
 
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += \
