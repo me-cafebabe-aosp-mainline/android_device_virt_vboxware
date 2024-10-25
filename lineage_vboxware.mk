@@ -24,9 +24,3 @@ PRODUCT_MODEL := vboxware
 PRODUCT_VENDOR_PROPERTIES += \
     ro.soc.manufacturer=$(PRODUCT_MANUFACTURER) \
     ro.soc.model=$(PRODUCT_DEVICE)
-
-# Workaround build fingerprint too long
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="vboxware-eng 14 AP2A.240705.005 0 test-keys"
-
-BUILD_FINGERPRINT := vboxware/vboxware/vboxware:14/AP2A.240705.005/0:eng/test-keys
