@@ -7,6 +7,8 @@
 # Inherit from common
 $(call inherit-product, device/virt/virt-common/virt-common.mk)
 
+DEVICE_PATH := device/virt/vboxware
+
 # Graphics (Composer)
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service
@@ -19,15 +21,15 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/init/init.vboxware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.vboxware.rc
+    $(DEVICE_PATH)/configs/init/init.vboxware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.vboxware.rc
 
 PRODUCT_PACKAGES += \
     fstab.vboxware
 
 # Input
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/.emptyfile:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/VirtualBox_mouse_integration.kl \
-    $(LOCAL_PATH)/configs/.emptyfile:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/VirtualBox_USB_Tablet.kl
+    $(DEVICE_PATH)/configs/.emptyfile:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/VirtualBox_mouse_integration.kl \
+    $(DEVICE_PATH)/configs/.emptyfile:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/VirtualBox_USB_Tablet.kl
 
 # Kernel
 TARGET_PREBUILT_KERNEL_USE ?= 6.1
@@ -42,11 +44,11 @@ endif
 
 # Recovery
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/init/init.recovery.vboxware.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.vboxware.rc
+    $(DEVICE_PATH)/configs/init/init.recovery.vboxware.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.vboxware.rc
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(DEVICE_PATH)
 
 # Vendor ramdisk
 PRODUCT_PACKAGES += \

@@ -11,7 +11,6 @@ TARGET_BOOT_MANAGER := grub
 include device/virt/virt-common/BoardConfigVirtCommon.mk
 
 USES_DEVICE_VIRT_VBOXWARE := true
-DEVICE_PATH := device/virt/vboxware
 
 # Arch
 TARGET_CPU_ABI := x86_64
