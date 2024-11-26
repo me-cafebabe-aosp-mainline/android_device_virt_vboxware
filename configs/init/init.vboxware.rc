@@ -32,8 +32,31 @@ on late-fs
     # Mount RW partitions which need run fsck
     mount_all --late
 
+# Graphics (Composer)
+on init
+    stop vendor.hwcomposer-2-1
+    stop vendor.hwcomposer-2-4
+
+on late-init && property:ro.boot.product.hardware.sku=virtualbox
+    enable vendor.hwcomposer-2-1
+
+on late-init && property:ro.boot.product.hardware.sku=vmware
+    setprop ro.hardware.hwcomposer drm
+    enable vendor.hwcomposer-2-4
+
+# Graphics (Gralloc)
+on init
+    stop vendor.gralloc-2-0
+    stop vendor.graphics.allocator.vboxware
+
+on late-init && property:ro.boot.product.hardware.sku=virtualbox
+    enable vendor.gralloc-2-0
+
+on late-init && property:ro.boot.product.hardware.sku=vmware
+    enable vendor.graphics.allocator.vboxware
+
 # Graphics (Mesa)
-on property:ro.vendor.graphics=mesa
+on property:ro.vendor.graphics=mesa && property:ro.boot.product.hardware.sku=vmware
     setprop ro.hardware.egl mesa
     setprop ro.hardware.gralloc minigbm_vboxware
     setprop ro.opengles.version 196609
