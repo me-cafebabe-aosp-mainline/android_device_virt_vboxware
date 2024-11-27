@@ -40,8 +40,7 @@ PRODUCT_PACKAGES += \
 
 # Input
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/.emptyfile:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/VirtualBox_mouse_integration.kl \
-    $(DEVICE_PATH)/configs/.emptyfile:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/VirtualBox_USB_Tablet.kl
+    $(DEVICE_PATH)/configs/.emptyfile:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/VirtualBox_mouse_integration.kl
 
 # Kernel
 TARGET_PREBUILT_KERNEL_USE ?= 6.1
