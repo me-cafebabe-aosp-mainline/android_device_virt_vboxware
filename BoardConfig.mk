@@ -25,6 +25,9 @@ TARGET_GRUB_INSTALL_CONFIGS += $(DEVICE_PATH)/bootmgr/grub/grub-install.cfg
 TARGET_REFIND_BOOT_CONFIG := $(DEVICE_PATH)/bootmgr/rEFInd/refind-boot.conf
 TARGET_REFIND_INSTALL_CONFIG := $(DEVICE_PATH)/bootmgr/rEFInd/refind-install.conf
 
+# Bootconfig
+TARGET_BOOTCONFIG_FILES += $(DEVICE_PATH)/configs/misc/bootconfig.txt
+
 # Fstab
 ifeq ($(AB_OTA_UPDATER),true)
 $(call soong_config_set,VBOXWARE_FSTAB,PARTITION_SCHEME,ab)
@@ -40,10 +43,7 @@ TARGET_GRUB_ARCH := x86_64-efi
 
 # Kernel
 BOARD_KERNEL_CMDLINE += \
-    8250.nr_uarts=1 \
-    androidboot.console=ttyS0 \
-    androidboot.hardware=vboxware \
-    androidboot.partition_map=sdb,userdata
+    8250.nr_uarts=1
 
 BOARD_KERNEL_IMAGE_NAME := bzImage
 
