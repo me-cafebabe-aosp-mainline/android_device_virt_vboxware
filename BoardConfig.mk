@@ -74,5 +74,5 @@ endif
 
 # VINTF
 ODM_MANIFEST_SKUS := virtualbox vmware
-ODM_MANIFEST_VIRTUALBOX_FILES := $(DEVICE_PATH)/configs/vintf/manifest_virtualbox.xml
-ODM_MANIFEST_VMWARE_FILES := $(DEVICE_PATH)/configs/vintf/manifest_vmware.xml
+ODM_MANIFEST_VIRTUALBOX_FILES := $(DEVICE_PATH)/configs/vintf/manifest_sku_virtualbox.xml
+ODM_MANIFEST_VMWARE_FILES := $(DEVICE_PATH)/configs/vintf/manifest_sku_vmware.xml
