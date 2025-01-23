@@ -39,8 +39,9 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/.emptyfile:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/VirtualBox_mouse_integration.kl
 
 # Kernel
+TARGET_PREBUILT_KERNEL_ARCH ?= x86_64
 TARGET_PREBUILT_KERNEL_USE ?= 6.6
-TARGET_PREBUILT_KERNEL_DIR := device/virt/kernel-vboxware/$(TARGET_PREBUILT_KERNEL_USE)
+TARGET_PREBUILT_KERNEL_DIR := device/virt/kernel-vboxware/$(TARGET_PREBUILT_KERNEL_USE)/$(TARGET_PREBUILT_KERNEL_ARCH)
 TARGET_KERNEL_SOURCE := kernel/virt/virtio
 ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),)
     $(warning Using source built kernel)
