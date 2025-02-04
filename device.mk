@@ -9,13 +9,7 @@ $(call inherit-product, device/virt/virt-common/virt-common.mk)
 
 DEVICE_PATH := device/virt/vboxware
 
-# Graphics (Composer)
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.composer@2.4-service \
-    hwcomposer.drm
-
-# Graphics (Gralloc)
+# Graphics (Allocator)
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-service.minigbm_vboxware \
     android.hardware.graphics.mapper@4.0-impl.minigbm_vboxware \
@@ -26,6 +20,12 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl-2.1
+
+# Graphics (Composer)
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.composer@2.4-service \
+    hwcomposer.drm
 
 # Graphics (Mesa)
 PRODUCT_PACKAGES += \

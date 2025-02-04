@@ -40,6 +40,17 @@ on early-init
 on early-boot && property:ro.vendor.graphics.gpu=vmwgfx
     setprop ro.vendor.graphics ${ro.boot.graphics:-mesa}
 
+# Graphics (Allocator)
+on init
+    stop vendor.graphics.allocator.vboxware
+    stop vendor.gralloc-2-0
+
+on late-init && property:ro.boot.product.hardware.sku=display_drm
+    enable vendor.graphics.allocator.vboxware
+
+on late-init && property:ro.boot.product.hardware.sku=display_fb
+    enable vendor.gralloc-2-0
+
 # Graphics (Composer)
 on init
     stop vendor.hwcomposer-2-1
@@ -51,17 +62,6 @@ on late-init && property:ro.boot.product.hardware.sku=display_drm
 
 on late-init && property:ro.boot.product.hardware.sku=display_fb
     enable vendor.hwcomposer-2-1
-
-# Graphics (Gralloc)
-on init
-    stop vendor.graphics.allocator.vboxware
-    stop vendor.gralloc-2-0
-
-on late-init && property:ro.boot.product.hardware.sku=display_drm
-    enable vendor.graphics.allocator.vboxware
-
-on late-init && property:ro.boot.product.hardware.sku=display_fb
-    enable vendor.gralloc-2-0
 
 # Graphics (Mesa)
 on property:ro.vendor.graphics.gpu=vmwgfx && property:ro.boot.product.hardware.sku=display_drm && property:ro.vendor.graphics=mesa
